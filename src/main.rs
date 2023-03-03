@@ -4,7 +4,7 @@
 use cortex_m_rt::entry;
 use microbit::{board::Board, display::blocking::Display, hal::Timer};
 use panic_rtt_target as _;
-use rtt_target::rtt_init_print;
+use rtt_target::{rprintln, rtt_init_print};
 
 const PIXELS: [(usize, usize); 16] = [
     (0, 0),
@@ -49,5 +49,6 @@ fn main() -> ! {
             display.show(&mut timer, leds, 30);
             last_led = *current_led;
         }
+        rprintln!("Hello!");
     }
 }
